@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc377521aa9c98441919802337b14c3b, type: 3}
+  m_Name: Leon
+  m_EditorClassIdentifier: 
+  id: 48
+  portrait: {fileID: -6581490813268160515, guid: 6221be461524f824e92aa9250a0af21c, type: 3}

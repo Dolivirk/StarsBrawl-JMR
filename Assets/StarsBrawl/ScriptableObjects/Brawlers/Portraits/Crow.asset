@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc377521aa9c98441919802337b14c3b, type: 3}
+  m_Name: Crow
+  m_EditorClassIdentifier: 
+  id: 47
+  portrait: {fileID: -6027562160441063919, guid: 3124a4bac5058ad4bbea96e23c6a22f6, type: 3}
