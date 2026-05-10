@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Masters
   m_EditorClassIdentifier: 
   id: 7
+  rankName: Maestros
   icon: {fileID: -3653321602616191006, guid: 6d75e5280b7f1de46abd62aaeae1a380, type: 3}

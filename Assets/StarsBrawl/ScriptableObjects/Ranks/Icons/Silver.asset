@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Silver
   m_EditorClassIdentifier: 
   id: 2
+  rankName: Plata
   icon: {fileID: -8994892245123163328, guid: 805a62385e85e324b8568470e45e63b3, type: 3}

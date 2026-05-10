@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Bronze
   m_EditorClassIdentifier: 
   id: 1
+  rankName: Bronce
   icon: {fileID: 7862228387917572630, guid: 512662d41733a874da20b814115a23dc, type: 3}

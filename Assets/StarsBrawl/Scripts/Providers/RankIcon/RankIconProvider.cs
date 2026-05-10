@@ -7,7 +7,8 @@ public sealed class RankIconProvider : MonoBehaviour, IRankIconProvider
 {
     [SerializeField] private RankIconData[] rankIcons;
 
-    private readonly Dictionary<int, Sprite> rankIconsMap = new();
+    private readonly Dictionary<int, Sprite>    rankIconsById   = new();
+    private readonly Dictionary<string, Sprite> rankIconsByName = new(StringComparer.OrdinalIgnoreCase);
 
     private void Awake()
     {
@@ -16,47 +17,58 @@ public sealed class RankIconProvider : MonoBehaviour, IRankIconProvider
 
     private void BuildMap()
     {
-        rankIconsMap.Clear();
+        rankIconsById.Clear();
+        rankIconsByName.Clear();
 
         if (rankIcons == null || rankIcons.Length == 0)
         {
-            Debug.LogWarning("PortraitProvider: No PortraitData assigned.");
+            Debug.LogWarning("[RankIconProvider] No RankIconData entries assigned.");
             return;
         }
 
-        foreach (var data in rankIcons)
+        foreach (RankIconData data in rankIcons)
         {
             if (data == null)
                 continue;
 
             if (data.Id <= 0)
             {
-                Debug.LogWarning($"PortraitProvider: PortraitData '{data.name}' has no ID.");
+                Debug.LogWarning($"[RankIconProvider] '{data.name}' has no valid ID.");
                 continue;
             }
 
-            if (rankIconsMap.ContainsKey(data.Id))
+            if (rankIconsById.ContainsKey(data.Id))
             {
-                Debug.LogWarning($"Duplicate portrait ID detected: {data.Id}");
-                continue;
+                Debug.LogWarning($"[RankIconProvider] Duplicate rank ID: {data.Id}");
+            }
+            else
+            {
+                rankIconsById.Add(data.Id, data.Icon);
             }
 
-            rankIconsMap.Add(data.Id, data.Icon);
+            if (!string.IsNullOrWhiteSpace(data.RankName))
+            {
+                if (rankIconsByName.ContainsKey(data.RankName))
+                    Debug.LogWarning($"[RankIconProvider] Duplicate rank name: '{data.RankName}'");
+                else
+                    rankIconsByName.Add(data.RankName, data.Icon);
+            }
         }
     }
 
-
+    /// <inheritdoc/>
     public Sprite GetRankIconByID(int id)
     {
         if (id <= 0)
-            throw new ArgumentException("Invalid portrait id.");
+            throw new ArgumentException("Invalid rank id.", nameof(id));
 
-        if (!rankIconsMap.TryGetValue(id, out var sprite))
-            throw new KeyNotFoundException($"Portrait with ID '{id}' not found.");
+        if (!rankIconsById.TryGetValue(id, out Sprite sprite))
+            throw new KeyNotFoundException($"Rank icon with ID '{id}' not found.");
 
         return sprite;
     }
 
+    /// <inheritdoc/>
     public bool TryGetRankIconByID(int id, out Sprite sprite)
     {
         if (id <= 0)
@@ -65,6 +77,18 @@ public sealed class RankIconProvider : MonoBehaviour, IRankIconProvider
             return false;
         }
 
-        return rankIconsMap.TryGetValue(id, out sprite);
+        return rankIconsById.TryGetValue(id, out sprite);
+    }
+
+    /// <inheritdoc/>
+    public bool TryGetRankIconByName(string rankName, out Sprite sprite)
+    {
+        if (string.IsNullOrWhiteSpace(rankName))
+        {
+            sprite = null;
+            return false;
+        }
+
+        return rankIconsByName.TryGetValue(rankName, out sprite);
     }
 }

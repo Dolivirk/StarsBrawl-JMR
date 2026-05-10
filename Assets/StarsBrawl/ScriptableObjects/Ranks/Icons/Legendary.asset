@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Legendary
   m_EditorClassIdentifier: 
   id: 6
+  rankName: Legendario
   icon: {fileID: -8015182745438879124, guid: 7b3310146d47a61448e9f6c10f2fe27e, type: 3}

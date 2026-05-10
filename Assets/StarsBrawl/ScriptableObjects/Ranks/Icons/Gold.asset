@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Gold
   m_EditorClassIdentifier: 
   id: 3
+  rankName: Oro
   icon: {fileID: -3436978017178416966, guid: 120d71a45ef85cd4da7bb27de9a109e0, type: 3}

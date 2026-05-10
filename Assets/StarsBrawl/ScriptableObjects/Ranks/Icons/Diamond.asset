@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Diamond
   m_EditorClassIdentifier: 
   id: 4
+  rankName: Diamante
   icon: {fileID: -1571125393277908375, guid: 8e30cb629ae365548a3eba5b1bef6ca6, type: 3}

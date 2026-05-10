@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Pro
   m_EditorClassIdentifier: 
   id: 8
+  rankName: Pro
   icon: {fileID: -2002132865801347051, guid: 4037d90ec1ae8984da8b46c3c7b117d6, type: 3}

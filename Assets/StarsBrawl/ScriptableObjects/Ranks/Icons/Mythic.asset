@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Mythic
   m_EditorClassIdentifier: 
   id: 5
+  rankName: "M\xEDtico"
   icon: {fileID: -7092435752221691371, guid: 094459e829fcdf849b46b6114ff9dc0a, type: 3}
